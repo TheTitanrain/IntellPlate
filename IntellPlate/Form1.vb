@@ -18,10 +18,6 @@ Public Class Form1
 
     End Sub
 
-    Private Sub BPreviews_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub NUD1l_ValueChanged(sender As Object, e As EventArgs) Handles NUD1l.ValueChanged
         l1 = NUD1l.Value
 
@@ -57,7 +53,7 @@ Public Class Form1
     End Sub
 
     Private Sub NUD2r_ValueChanged(sender As Object, e As EventArgs) Handles NUD2r.ValueChanged
-        r1 = NUD1r.Value
+        r2 = NUD2r.Value
 
     End Sub
 
@@ -235,6 +231,25 @@ Public Class Form1
         n3 = 0
         r1 = 0
         r2 = 0
+
+        NUD1l.Value = l1
+        NUD2l.Value = l2
+        NUD3l.Value = l3
+        NUD1n.Value = n1
+        NUD2n.Value = n2
+        NUD3n.Value = n3
+        NUD1r.Value = r1
+        NUD2r.Value = r2
+        NUDn.Value = n
+
+        PB1l.Value = 0
+        PB1n.Value = 0
+        PB1r.Value = 0
+        PB2l.Value = 0
+        PB2n.Value = 0
+        PB2r.Value = 0
+        PB3l.Value = 0
+        PB3n.Value = 0
         Return 1
 
     End Function
@@ -247,6 +262,15 @@ Public Class Form1
         Dim n3err = n3 / n * 100
         Dim r1err = r1 / n * 100
         Dim r2err = r2 / n * 100
+        PB1l.Value = l1err
+        PB1n.Value = n1err
+        PB1r.Value = r1err
+        PB2l.Value = l2err
+        PB2n.Value = n2err
+        PB2r.Value = r2err
+        PB3l.Value = l3err
+        PB3n.Value = n3err
+
         TextBox1.Text = "Процент ошибок из " & n & ": 1-я буква: " & l1err & "%, " &
             "2-я буква: " & l2err & "%, " &
             "3-я буква: " & l3err & "%, " &
@@ -255,7 +279,9 @@ Public Class Form1
             "3-я цифра: " & n3err & "%, " &
             "1-я буква региона: " & r1err & "%, " &
             "2-я буква региона: " & r2err & "%."
+
         Return True
+
 
     End Function
 

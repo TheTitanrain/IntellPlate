@@ -63,6 +63,14 @@ Partial Class Form1
         Me.NUDn = New System.Windows.Forms.NumericUpDown()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.PB2r = New System.Windows.Forms.ProgressBar()
+        Me.PB1r = New System.Windows.Forms.ProgressBar()
+        Me.PB3l = New System.Windows.Forms.ProgressBar()
+        Me.PB2l = New System.Windows.Forms.ProgressBar()
+        Me.PB3n = New System.Windows.Forms.ProgressBar()
+        Me.PB2n = New System.Windows.Forms.ProgressBar()
+        Me.PB1n = New System.Windows.Forms.ProgressBar()
+        Me.PB1l = New System.Windows.Forms.ProgressBar()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NUD2r, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,7 +105,7 @@ Partial Class Form1
         '
         'BFlush
         '
-        Me.BFlush.Location = New System.Drawing.Point(177, 646)
+        Me.BFlush.Location = New System.Drawing.Point(178, 661)
         Me.BFlush.Name = "BFlush"
         Me.BFlush.Size = New System.Drawing.Size(142, 23)
         Me.BFlush.TabIndex = 3
@@ -107,7 +115,7 @@ Partial Class Form1
         '
         'BNext
         '
-        Me.BNext.Location = New System.Drawing.Point(550, 646)
+        Me.BNext.Location = New System.Drawing.Point(551, 661)
         Me.BNext.Name = "BNext"
         Me.BNext.Size = New System.Drawing.Size(150, 23)
         Me.BNext.TabIndex = 4
@@ -200,12 +208,12 @@ Partial Class Form1
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(707, 112)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(219, 602)
+        Me.ListBox1.Size = New System.Drawing.Size(219, 615)
         Me.ListBox1.TabIndex = 13
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 675)
+        Me.TextBox1.Location = New System.Drawing.Point(13, 690)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(689, 35)
@@ -213,6 +221,14 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PB2r)
+        Me.GroupBox1.Controls.Add(Me.PB1r)
+        Me.GroupBox1.Controls.Add(Me.PB3l)
+        Me.GroupBox1.Controls.Add(Me.PB2l)
+        Me.GroupBox1.Controls.Add(Me.PB3n)
+        Me.GroupBox1.Controls.Add(Me.PB2n)
+        Me.GroupBox1.Controls.Add(Me.PB1n)
+        Me.GroupBox1.Controls.Add(Me.PB1l)
         Me.GroupBox1.Controls.Add(Me.NUD2r)
         Me.GroupBox1.Controls.Add(Me.NUD1r)
         Me.GroupBox1.Controls.Add(Me.NUD3l)
@@ -231,28 +247,28 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.cbnumber2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 575)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(688, 65)
+        Me.GroupBox1.Size = New System.Drawing.Size(688, 80)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ошибки в:"
         '
         'NUD2r
         '
-        Me.NUD2r.Location = New System.Drawing.Point(572, 37)
+        Me.NUD2r.Location = New System.Drawing.Point(566, 37)
         Me.NUD2r.Name = "NUD2r"
         Me.NUD2r.Size = New System.Drawing.Size(73, 20)
         Me.NUD2r.TabIndex = 20
         '
         'NUD1r
         '
-        Me.NUD1r.Location = New System.Drawing.Point(487, 37)
+        Me.NUD1r.Location = New System.Drawing.Point(486, 37)
         Me.NUD1r.Name = "NUD1r"
         Me.NUD1r.Size = New System.Drawing.Size(73, 20)
         Me.NUD1r.TabIndex = 19
         '
         'NUD3l
         '
-        Me.NUD3l.Location = New System.Drawing.Point(404, 37)
+        Me.NUD3l.Location = New System.Drawing.Point(406, 37)
         Me.NUD3l.Name = "NUD3l"
         Me.NUD3l.Size = New System.Drawing.Size(73, 20)
         Me.NUD3l.TabIndex = 18
@@ -266,21 +282,21 @@ Partial Class Form1
         '
         'NUD3n
         '
-        Me.NUD3n.Location = New System.Drawing.Point(247, 39)
+        Me.NUD3n.Location = New System.Drawing.Point(246, 39)
         Me.NUD3n.Name = "NUD3n"
         Me.NUD3n.Size = New System.Drawing.Size(73, 20)
         Me.NUD3n.TabIndex = 16
         '
         'NUD2n
         '
-        Me.NUD2n.Location = New System.Drawing.Point(164, 39)
+        Me.NUD2n.Location = New System.Drawing.Point(166, 39)
         Me.NUD2n.Name = "NUD2n"
         Me.NUD2n.Size = New System.Drawing.Size(73, 20)
         Me.NUD2n.TabIndex = 15
         '
         'NUD1n
         '
-        Me.NUD1n.Location = New System.Drawing.Point(85, 39)
+        Me.NUD1n.Location = New System.Drawing.Point(86, 39)
         Me.NUD1n.Name = "NUD1n"
         Me.NUD1n.Size = New System.Drawing.Size(73, 20)
         Me.NUD1n.TabIndex = 14
@@ -318,7 +334,7 @@ Partial Class Form1
         '
         'LabelCount
         '
-        Me.LabelCount.Location = New System.Drawing.Point(704, 721)
+        Me.LabelCount.Location = New System.Drawing.Point(704, 734)
         Me.LabelCount.Name = "LabelCount"
         Me.LabelCount.Size = New System.Drawing.Size(219, 15)
         Me.LabelCount.TabIndex = 18
@@ -327,7 +343,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 719)
+        Me.Label1.Location = New System.Drawing.Point(13, 734)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 19
@@ -335,7 +351,7 @@ Partial Class Form1
         '
         'TBServer
         '
-        Me.TBServer.Location = New System.Drawing.Point(62, 716)
+        Me.TBServer.Location = New System.Drawing.Point(63, 731)
         Me.TBServer.Name = "TBServer"
         Me.TBServer.Size = New System.Drawing.Size(149, 20)
         Me.TBServer.TabIndex = 20
@@ -344,7 +360,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(217, 719)
+        Me.Label2.Location = New System.Drawing.Point(218, 734)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(83, 13)
         Me.Label2.TabIndex = 21
@@ -353,7 +369,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(413, 719)
+        Me.Label3.Location = New System.Drawing.Point(414, 734)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 13)
         Me.Label3.TabIndex = 22
@@ -361,7 +377,7 @@ Partial Class Form1
         '
         'TBUser
         '
-        Me.TBUser.Location = New System.Drawing.Point(306, 716)
+        Me.TBUser.Location = New System.Drawing.Point(307, 731)
         Me.TBUser.Name = "TBUser"
         Me.TBUser.Size = New System.Drawing.Size(100, 20)
         Me.TBUser.TabIndex = 23
@@ -369,7 +385,7 @@ Partial Class Form1
         '
         'TBPass
         '
-        Me.TBPass.Location = New System.Drawing.Point(467, 716)
+        Me.TBPass.Location = New System.Drawing.Point(468, 731)
         Me.TBPass.Name = "TBPass"
         Me.TBPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TBPass.Size = New System.Drawing.Size(233, 20)
@@ -406,7 +422,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(395, 651)
+        Me.Label5.Location = New System.Drawing.Point(396, 666)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(66, 13)
         Me.Label5.TabIndex = 28
@@ -414,7 +430,7 @@ Partial Class Form1
         '
         'NUDn
         '
-        Me.NUDn.Location = New System.Drawing.Point(467, 649)
+        Me.NUDn.Location = New System.Drawing.Point(468, 664)
         Me.NUDn.Name = "NUDn"
         Me.NUDn.Size = New System.Drawing.Size(69, 20)
         Me.NUDn.TabIndex = 29
@@ -435,11 +451,68 @@ Partial Class Form1
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Список идентификаторов снимков:"
         '
+        'PB2r
+        '
+        Me.PB2r.Location = New System.Drawing.Point(566, 62)
+        Me.PB2r.Name = "PB2r"
+        Me.PB2r.Size = New System.Drawing.Size(73, 12)
+        Me.PB2r.TabIndex = 47
+        '
+        'PB1r
+        '
+        Me.PB1r.Location = New System.Drawing.Point(486, 62)
+        Me.PB1r.Name = "PB1r"
+        Me.PB1r.Size = New System.Drawing.Size(73, 12)
+        Me.PB1r.TabIndex = 46
+        '
+        'PB3l
+        '
+        Me.PB3l.Location = New System.Drawing.Point(406, 62)
+        Me.PB3l.Name = "PB3l"
+        Me.PB3l.Size = New System.Drawing.Size(73, 12)
+        Me.PB3l.TabIndex = 45
+        '
+        'PB2l
+        '
+        Me.PB2l.Location = New System.Drawing.Point(326, 62)
+        Me.PB2l.Name = "PB2l"
+        Me.PB2l.Size = New System.Drawing.Size(73, 12)
+        Me.PB2l.TabIndex = 44
+        '
+        'PB3n
+        '
+        Me.PB3n.Location = New System.Drawing.Point(246, 62)
+        Me.PB3n.Name = "PB3n"
+        Me.PB3n.Size = New System.Drawing.Size(73, 12)
+        Me.PB3n.TabIndex = 43
+        '
+        'PB2n
+        '
+        Me.PB2n.Location = New System.Drawing.Point(166, 62)
+        Me.PB2n.Name = "PB2n"
+        Me.PB2n.Size = New System.Drawing.Size(73, 12)
+        Me.PB2n.TabIndex = 42
+        '
+        'PB1n
+        '
+        Me.PB1n.Location = New System.Drawing.Point(86, 62)
+        Me.PB1n.Name = "PB1n"
+        Me.PB1n.Size = New System.Drawing.Size(73, 12)
+        Me.PB1n.TabIndex = 41
+        '
+        'PB1l
+        '
+        Me.PB1l.Location = New System.Drawing.Point(6, 62)
+        Me.PB1l.Name = "PB1l"
+        Me.PB1l.Size = New System.Drawing.Size(73, 12)
+        Me.PB1l.TabIndex = 40
+        '
         'Form1
         '
+        Me.AcceptButton = Me.BNext
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(938, 747)
+        Me.ClientSize = New System.Drawing.Size(938, 756)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.NUDn)
@@ -524,4 +597,12 @@ Partial Class Form1
     Friend WithEvents NUDn As NumericUpDown
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents PB2r As ProgressBar
+    Friend WithEvents PB1r As ProgressBar
+    Friend WithEvents PB3l As ProgressBar
+    Friend WithEvents PB2l As ProgressBar
+    Friend WithEvents PB3n As ProgressBar
+    Friend WithEvents PB2n As ProgressBar
+    Friend WithEvents PB1n As ProgressBar
+    Friend WithEvents PB1l As ProgressBar
 End Class
