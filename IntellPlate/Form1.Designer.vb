@@ -38,6 +38,14 @@ Partial Class Form1
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.NUD2r = New System.Windows.Forms.NumericUpDown()
+        Me.NUD1r = New System.Windows.Forms.NumericUpDown()
+        Me.NUD3l = New System.Windows.Forms.NumericUpDown()
+        Me.NUD2l = New System.Windows.Forms.NumericUpDown()
+        Me.NUD3n = New System.Windows.Forms.NumericUpDown()
+        Me.NUD2n = New System.Windows.Forms.NumericUpDown()
+        Me.NUD1n = New System.Windows.Forms.NumericUpDown()
+        Me.NUD1l = New System.Windows.Forms.NumericUpDown()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -51,26 +59,20 @@ Partial Class Form1
         Me.TBNumber = New System.Windows.Forms.TextBox()
         Me.TBTime = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.NUD1l = New System.Windows.Forms.NumericUpDown()
-        Me.NUD1n = New System.Windows.Forms.NumericUpDown()
-        Me.NUD2n = New System.Windows.Forms.NumericUpDown()
-        Me.NUD3n = New System.Windows.Forms.NumericUpDown()
-        Me.NUD2l = New System.Windows.Forms.NumericUpDown()
-        Me.NUD3l = New System.Windows.Forms.NumericUpDown()
-        Me.NUD1r = New System.Windows.Forms.NumericUpDown()
-        Me.NUD2r = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.NUDn = New System.Windows.Forms.NumericUpDown()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NUD1n, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NUD2n, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NUD3n, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NUD2l, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NUD3l, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NUD1r, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUD2r, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD1r, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD3l, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD2l, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD3n, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD2n, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD1n, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -86,9 +88,9 @@ Partial Class Form1
         '
         'BDownload
         '
-        Me.BDownload.Location = New System.Drawing.Point(12, 646)
+        Me.BDownload.Location = New System.Drawing.Point(707, 64)
         Me.BDownload.Name = "BDownload"
-        Me.BDownload.Size = New System.Drawing.Size(152, 23)
+        Me.BDownload.Size = New System.Drawing.Size(219, 23)
         Me.BDownload.TabIndex = 2
         Me.BDownload.Text = "Загрузить"
         Me.BDownload.UseVisualStyleBackColor = True
@@ -196,9 +198,9 @@ Partial Class Form1
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(707, 60)
+        Me.ListBox1.Location = New System.Drawing.Point(707, 112)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(219, 654)
+        Me.ListBox1.Size = New System.Drawing.Size(219, 602)
         Me.ListBox1.TabIndex = 13
         '
         'TextBox1
@@ -234,19 +236,85 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ошибки в:"
         '
+        'NUD2r
+        '
+        Me.NUD2r.Location = New System.Drawing.Point(572, 37)
+        Me.NUD2r.Name = "NUD2r"
+        Me.NUD2r.Size = New System.Drawing.Size(73, 20)
+        Me.NUD2r.TabIndex = 20
+        '
+        'NUD1r
+        '
+        Me.NUD1r.Location = New System.Drawing.Point(487, 37)
+        Me.NUD1r.Name = "NUD1r"
+        Me.NUD1r.Size = New System.Drawing.Size(73, 20)
+        Me.NUD1r.TabIndex = 19
+        '
+        'NUD3l
+        '
+        Me.NUD3l.Location = New System.Drawing.Point(404, 37)
+        Me.NUD3l.Name = "NUD3l"
+        Me.NUD3l.Size = New System.Drawing.Size(73, 20)
+        Me.NUD3l.TabIndex = 18
+        '
+        'NUD2l
+        '
+        Me.NUD2l.Location = New System.Drawing.Point(326, 38)
+        Me.NUD2l.Name = "NUD2l"
+        Me.NUD2l.Size = New System.Drawing.Size(73, 20)
+        Me.NUD2l.TabIndex = 17
+        '
+        'NUD3n
+        '
+        Me.NUD3n.Location = New System.Drawing.Point(247, 39)
+        Me.NUD3n.Name = "NUD3n"
+        Me.NUD3n.Size = New System.Drawing.Size(73, 20)
+        Me.NUD3n.TabIndex = 16
+        '
+        'NUD2n
+        '
+        Me.NUD2n.Location = New System.Drawing.Point(164, 39)
+        Me.NUD2n.Name = "NUD2n"
+        Me.NUD2n.Size = New System.Drawing.Size(73, 20)
+        Me.NUD2n.TabIndex = 15
+        '
+        'NUD1n
+        '
+        Me.NUD1n.Location = New System.Drawing.Point(85, 39)
+        Me.NUD1n.Name = "NUD1n"
+        Me.NUD1n.Size = New System.Drawing.Size(73, 20)
+        Me.NUD1n.TabIndex = 14
+        '
+        'NUD1l
+        '
+        Me.NUD1l.Location = New System.Drawing.Point(6, 38)
+        Me.NUD1l.Name = "NUD1l"
+        Me.NUD1l.Size = New System.Drawing.Size(73, 20)
+        Me.NUD1l.TabIndex = 13
+        '
         'DateTimePicker1
         '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker1.Location = New System.Drawing.Point(707, 12)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(219, 20)
         Me.DateTimePicker1.TabIndex = 16
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Дата, с которой загружаются машины")
+        Me.DateTimePicker1.Value = New Date(2017, 2, 1, 0, 0, 0, 0)
         '
         'DateTimePicker2
         '
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker2.Location = New System.Drawing.Point(707, 38)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(219, 20)
         Me.DateTimePicker2.TabIndex = 17
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker2, "Дата, по которую загружаются машины")
+        Me.DateTimePicker2.Value = New Date(2017, 2, 1, 23, 59, 59, 0)
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutomaticDelay = 300
         '
         'LabelCount
         '
@@ -335,62 +403,6 @@ Partial Class Form1
         Me.Label4.TabIndex = 27
         Me.Label4.Text = "Время:"
         '
-        'NUD1l
-        '
-        Me.NUD1l.Location = New System.Drawing.Point(6, 38)
-        Me.NUD1l.Name = "NUD1l"
-        Me.NUD1l.Size = New System.Drawing.Size(73, 20)
-        Me.NUD1l.TabIndex = 13
-        '
-        'NUD1n
-        '
-        Me.NUD1n.Location = New System.Drawing.Point(85, 39)
-        Me.NUD1n.Name = "NUD1n"
-        Me.NUD1n.Size = New System.Drawing.Size(73, 20)
-        Me.NUD1n.TabIndex = 14
-        '
-        'NUD2n
-        '
-        Me.NUD2n.Location = New System.Drawing.Point(164, 39)
-        Me.NUD2n.Name = "NUD2n"
-        Me.NUD2n.Size = New System.Drawing.Size(73, 20)
-        Me.NUD2n.TabIndex = 15
-        '
-        'NUD3n
-        '
-        Me.NUD3n.Location = New System.Drawing.Point(247, 39)
-        Me.NUD3n.Name = "NUD3n"
-        Me.NUD3n.Size = New System.Drawing.Size(73, 20)
-        Me.NUD3n.TabIndex = 16
-        '
-        'NUD2l
-        '
-        Me.NUD2l.Location = New System.Drawing.Point(326, 38)
-        Me.NUD2l.Name = "NUD2l"
-        Me.NUD2l.Size = New System.Drawing.Size(73, 20)
-        Me.NUD2l.TabIndex = 17
-        '
-        'NUD3l
-        '
-        Me.NUD3l.Location = New System.Drawing.Point(404, 37)
-        Me.NUD3l.Name = "NUD3l"
-        Me.NUD3l.Size = New System.Drawing.Size(73, 20)
-        Me.NUD3l.TabIndex = 18
-        '
-        'NUD1r
-        '
-        Me.NUD1r.Location = New System.Drawing.Point(487, 37)
-        Me.NUD1r.Name = "NUD1r"
-        Me.NUD1r.Size = New System.Drawing.Size(73, 20)
-        Me.NUD1r.TabIndex = 19
-        '
-        'NUD2r
-        '
-        Me.NUD2r.Location = New System.Drawing.Point(572, 37)
-        Me.NUD2r.Name = "NUD2r"
-        Me.NUD2r.Size = New System.Drawing.Size(73, 20)
-        Me.NUD2r.TabIndex = 20
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -407,11 +419,29 @@ Partial Class Form1
         Me.NUDn.Size = New System.Drawing.Size(69, 20)
         Me.NUDn.TabIndex = 29
         '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(176, 555)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox2.TabIndex = 30
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(707, 96)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(187, 13)
+        Me.Label6.TabIndex = 31
+        Me.Label6.Text = "Список идентификаторов снимков:"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(938, 747)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.NUDn)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -440,14 +470,14 @@ Partial Class Form1
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NUD1n, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NUD2n, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NUD3n, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NUD2l, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NUD3l, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NUD1r, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUD2r, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD1r, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD3l, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD2l, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD3n, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD2n, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD1n, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -492,4 +522,6 @@ Partial Class Form1
     Friend WithEvents NUD1l As NumericUpDown
     Friend WithEvents Label5 As Label
     Friend WithEvents NUDn As NumericUpDown
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label6 As Label
 End Class

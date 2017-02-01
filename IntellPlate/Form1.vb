@@ -66,12 +66,24 @@ Public Class Form1
 
     End Sub
 
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+
+    End Sub
+
     Function Download()
         Try
             ListBox1.Items.Clear()
             Dim strCn As String = "Server=" & TBServer.Text & ";Database=lprex;User ID=" & TBUser.Text & ";Password=" & TBPass.Text
             Dim cn As New SqlConnection(strCn)
-            Dim cmd As New SqlCommand("SELECT frame_id FROM lprex.dbo.Frames WHERE frame Is Not null And time > '2017-01-31 00:0:0.000'", cn)
+            Dim TimeZone As Date = TimeZone.ToUniversalTime
+            Dim dateFrom As String = Format(DateTimePicker1.Value.AddHours(-10), "yyyy-MM-dd HH:mm:ss")
+            Dim dateTo As String = Format(DateTimePicker2.Value.AddHours(-10), "yyyy-MM-dd HH:mm:ss")
+            Dim cmdstring As String = "SELECT frame_id FROM lprex.dbo.Frames WHERE frame Is Not null And time > '" &
+                dateFrom &
+                "' and time < '" &
+                dateTo &
+                "'"                'формат: 2017-01-31 00:00:00'"
+            Dim cmd As New SqlCommand(cmdstring, cn)
             Dim dr As SqlDataReader
             Dim sqlAdapter As New SqlDataAdapter
             Dim TABLE As New DataTable
@@ -102,6 +114,8 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DateTimePicker1.CustomFormat = "dd MMMM yyyy HH:mm:ss"
+        DateTimePicker2.CustomFormat = "dd MMMM yyyy HH:mm:ss"
         Flush()
         Download()
 
