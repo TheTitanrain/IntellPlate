@@ -1,3 +1,248 @@
-﻿Public Class Form1
+﻿Imports System.Data.SqlClient
+Imports System.IO
+
+Public Class Form1
+    Dim errorstext As String = ""
+    Dim l1, l2, l3, n1, n2, n3, r1, r2, n As Integer
+
+    Private Sub BDownload_Click(sender As Object, e As EventArgs) Handles BDownload.Click
+        If ListBox1.Items.Count > 0 Then
+            If MsgBox("Вы действительно хотите загрузить записи в список?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Download()
+            End If
+        Else
+            Download()
+        End If
+
+
+
+    End Sub
+
+    Private Sub BPreviews_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub NUD1l_ValueChanged(sender As Object, e As EventArgs) Handles NUD1l.ValueChanged
+        l1 = NUD1l.Value
+
+    End Sub
+
+    Private Sub NUD1n_ValueChanged(sender As Object, e As EventArgs) Handles NUD1n.ValueChanged
+        n1 = NUD1n.Value
+
+    End Sub
+
+    Private Sub NUD2n_ValueChanged(sender As Object, e As EventArgs) Handles NUD2n.ValueChanged
+        n2 = NUD2n.Value
+
+    End Sub
+
+    Private Sub NUD3n_ValueChanged(sender As Object, e As EventArgs) Handles NUD3n.ValueChanged
+        n3 = NUD3n.Value
+
+    End Sub
+
+    Private Sub NUD2l_ValueChanged(sender As Object, e As EventArgs) Handles NUD2l.ValueChanged
+        l2 = NUD2l.Value
+
+    End Sub
+
+    Private Sub NUD3l_ValueChanged(sender As Object, e As EventArgs) Handles NUD3l.ValueChanged
+        l3 = NUD3l.Value
+    End Sub
+
+    Private Sub NUD1r_ValueChanged(sender As Object, e As EventArgs) Handles NUD1r.ValueChanged
+        r1 = NUD1r.Value
+
+    End Sub
+
+    Private Sub NUD2r_ValueChanged(sender As Object, e As EventArgs) Handles NUD2r.ValueChanged
+        r1 = NUD1r.Value
+
+    End Sub
+
+    Private Sub NUDn_ValueChanged(sender As Object, e As EventArgs) Handles NUDn.ValueChanged
+        n = NUDn.Value
+
+    End Sub
+
+    Function Download()
+        Try
+            ListBox1.Items.Clear()
+            Dim strCn As String = "Server=" & TBServer.Text & ";Database=lprex;User ID=" & TBUser.Text & ";Password=" & TBPass.Text
+            Dim cn As New SqlConnection(strCn)
+            Dim cmd As New SqlCommand("SELECT frame_id FROM lprex.dbo.Frames WHERE frame Is Not null And time > '2017-01-31 00:0:0.000'", cn)
+            Dim dr As SqlDataReader
+            Dim sqlAdapter As New SqlDataAdapter
+            Dim TABLE As New DataTable
+            With sqlAdapter
+                .SelectCommand = cmd
+                .Fill(TABLE)
+            End With
+            cn.Open()
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+            dr.Close()
+
+            For i = 0 To TABLE.Rows.Count - 1
+                ListBox1.Items.Add(TABLE(i).Item(0).ToString)
+            Next
+            LabelCount.Text = "Всего элементов: " & ListBox1.Items.Count
+            cn.Close()
+            Return 1
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
+        End Try
+
+    End Function
+
+    Private Sub BFlush_Click(sender As Object, e As EventArgs) Handles BFlush.Click
+        If MsgBox("Действительно сбросить все собранные данные по ошибкам?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then Flush()
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Flush()
+        Download()
+
+    End Sub
+
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+        Try
+            Dim strCn As String = "Server=" & TBServer.Text & ";Database=lprex;User ID=" & TBUser.Text & ";Password=" & TBPass.Text
+            Dim cn As New SqlConnection(strCn)
+            Dim cmd As New SqlCommand("SELECT frame_id, frame, time FROM lprex.dbo.Frames WHERE frame_id=" & "'" & ListBox1.SelectedItem.ToString & "'", cn)
+            Dim dr As SqlDataReader
+            Dim sqlAdapter As New SqlDataAdapter
+            cn.Open()
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+            If dr.Read Then
+                Dim bytBLOBData(dr.GetBytes(1, 0, Nothing, 0, Integer.MaxValue) - 1) As Byte
+                dr.GetBytes(1, 0, bytBLOBData, 0, bytBLOBData.Length)
+                Dim stmBLOBData As New MemoryStream(bytBLOBData)
+                PictureBox1.Image = Image.FromStream(stmBLOBData)
+            End If
+            dr.Close()
+            Dim TABLE As New DataTable
+            With sqlAdapter
+                .SelectCommand = cmd
+                .Fill(TABLE)
+            End With
+            Dim time As Date = CDate(TABLE(0).Item(2))
+            time = time.ToLocalTime 'добавляем ко времени часовой пояс
+            TBTime.Text = time
+
+            cn.Close()
+
+            GetNumber(ListBox1.SelectedItem.ToString)
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
+
+        End Try
+    End Sub
+    Function GetNumber(id As String)
+        Try
+            Dim strCn As String = "Server=" & TBServer.Text & ";Database=lprex;User ID=" & TBUser.Text & ";Password=" & TBPass.Text
+            Dim cn As New SqlConnection(strCn)
+            Dim cmd As New SqlCommand("select text from [lprex].[dbo].[Numbers] where number_id = (select number_id from [lprex].[dbo].[Plates] where pk = (select plates_id from [lprex].[dbo].[Plate_Numbers] where frame_id = '" & id & "'))", cn)
+            Dim dr As SqlDataReader
+            Dim sqlAdapter As New SqlDataAdapter
+            Dim TABLE As New DataTable
+            With sqlAdapter
+                .SelectCommand = cmd
+                .Fill(TABLE)
+            End With
+            cn.Open()
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+            dr.Close()
+
+            TBNumber.Text = TABLE(0).Item(0)
+
+            cn.Close()
+            Return 1
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
+        End Try
+    End Function
+    Private Sub BNext_Click(sender As Object, e As EventArgs) Handles BNext.Click
+        Try
+            n = n + 1
+            NUDn.Value = n
+            If cbletter1.Checked Then l1 = l1 + 1
+            If cbletter2.Checked Then l2 = l2 + 1
+            If cbletter3.Checked Then l3 = l3 + 1
+            If cbnumber1.Checked Then n1 = n1 + 1
+            If cbnumber2.Checked Then n2 = n2 + 1
+            If cbnumber3.Checked Then n3 = n3 + 1
+            If cbregion1.Checked Then r1 = r1 + 1
+            If cbregion2.Checked Then r2 = r2 + 1
+            NUD1l.Value = l1
+            NUD2l.Value = l2
+            NUD3l.Value = l3
+            NUD1n.Value = n1
+            NUD2n.Value = n2
+            NUD3n.Value = n3
+            NUD1r.Value = r1
+            NUD2r.Value = r2
+
+            calculation()
+            cbletter1.Checked = False
+            cbletter2.Checked = False
+            cbletter3.Checked = False
+            cbnumber1.Checked = False
+            cbnumber2.Checked = False
+            cbnumber3.Checked = False
+            cbregion1.Checked = False
+            cbregion2.Checked = False
+
+            If ListBox1.SelectedIndex = ListBox1.Items.Count - 1 Then
+                ListBox1.SelectedIndex = 0
+            Else
+                ListBox1.SelectedIndex = ListBox1.SelectedIndex + 1
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
+        End Try
+
+
+    End Sub
+    Function Flush()
+        n = 0
+        l1 = 0
+        l2 = 0
+        l3 = 0
+        n1 = 0
+        n2 = 0
+        n3 = 0
+        r1 = 0
+        r2 = 0
+        Return 1
+
+    End Function
+    Function calculation()
+        Dim l1err = l1 / n * 100
+        Dim l2err = l2 / n * 100
+        Dim l3err = l3 / n * 100
+        Dim n1err = n1 / n * 100
+        Dim n2err = n2 / n * 100
+        Dim n3err = n3 / n * 100
+        Dim r1err = r1 / n * 100
+        Dim r2err = r2 / n * 100
+        TextBox1.Text = "Процент ошибок из " & n & ": 1-я буква: " & l1err & "%, " &
+            "2-я буква: " & l2err & "%, " &
+            "3-я буква: " & l3err & "%, " &
+            "1-я цифра: " & n1err & "%, " &
+            "2-я цифра: " & n2err & "%, " &
+            "3-я цифра: " & n3err & "%, " &
+            "1-я буква региона: " & r1err & "%, " &
+            "2-я буква региона: " & r2err & "%."
+        Return True
+
+    End Function
 
 End Class
