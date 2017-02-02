@@ -94,7 +94,7 @@ Public Class Form1
             For i = 0 To TABLE.Rows.Count - 1
                 ListBox1.Items.Add(TABLE(i).Item(0).ToString)
             Next
-            LabelCount.Text = "Всего элементов: " & ListBox1.Items.Count
+            LabelCount.Text = "Всего загружено: " & ListBox1.Items.Count
             cn.Close()
             Return 1
         Catch ex As Exception
