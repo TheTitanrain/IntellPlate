@@ -59,12 +59,6 @@ Partial Class Form1
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.LabelCount = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TBServer = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TBUser = New System.Windows.Forms.TextBox()
-        Me.TBPass = New System.Windows.Forms.TextBox()
         Me.TBNumber = New System.Windows.Forms.TextBox()
         Me.TBTime = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -73,6 +67,13 @@ Partial Class Form1
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TBPass = New System.Windows.Forms.TextBox()
+        Me.TBUser = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TBServer = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NUD2r, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +85,7 @@ Partial Class Form1
         CType(Me.NUD1n, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -215,10 +217,10 @@ Partial Class Form1
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(707, 575)
+        Me.TextBox1.Location = New System.Drawing.Point(707, 568)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(219, 156)
+        Me.TextBox1.Size = New System.Drawing.Size(219, 151)
         Me.TextBox1.TabIndex = 14
         '
         'GroupBox1
@@ -392,63 +394,11 @@ Partial Class Form1
         '
         'LabelCount
         '
-        Me.LabelCount.Location = New System.Drawing.Point(704, 734)
+        Me.LabelCount.Location = New System.Drawing.Point(706, 722)
         Me.LabelCount.Name = "LabelCount"
         Me.LabelCount.Size = New System.Drawing.Size(219, 15)
         Me.LabelCount.TabIndex = 18
         Me.LabelCount.Text = "LabelCount"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 734)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Сервер:"
-        '
-        'TBServer
-        '
-        Me.TBServer.Location = New System.Drawing.Point(63, 731)
-        Me.TBServer.Name = "TBServer"
-        Me.TBServer.Size = New System.Drawing.Size(149, 20)
-        Me.TBServer.TabIndex = 20
-        Me.TBServer.Text = "SRVVIDEO\SQLEXPRESS"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(218, 734)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 13)
-        Me.Label2.TabIndex = 21
-        Me.Label2.Text = "Пользователь:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(414, 734)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(48, 13)
-        Me.Label3.TabIndex = 22
-        Me.Label3.Text = "Пароль:"
-        '
-        'TBUser
-        '
-        Me.TBUser.Location = New System.Drawing.Point(307, 731)
-        Me.TBUser.Name = "TBUser"
-        Me.TBUser.Size = New System.Drawing.Size(100, 20)
-        Me.TBUser.TabIndex = 23
-        Me.TBUser.Text = "sa"
-        '
-        'TBPass
-        '
-        Me.TBPass.Location = New System.Drawing.Point(468, 731)
-        Me.TBPass.Name = "TBPass"
-        Me.TBPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TBPass.Size = New System.Drawing.Size(233, 20)
-        Me.TBPass.TabIndex = 24
-        Me.TBPass.Text = "Intellect_default_DB_4"
         '
         'TBNumber
         '
@@ -512,18 +462,86 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(707, 559)
+        Me.Label7.Location = New System.Drawing.Point(707, 552)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(68, 13)
         Me.Label7.TabIndex = 32
         Me.Label7.Text = "Статистика:"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.TBPass)
+        Me.GroupBox2.Controls.Add(Me.TBUser)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.TBServer)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 690)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(688, 47)
+        Me.GroupBox2.TabIndex = 33
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Настройки подключения к серверу:"
+        '
+        'TBPass
+        '
+        Me.TBPass.Location = New System.Drawing.Point(458, 19)
+        Me.TBPass.Name = "TBPass"
+        Me.TBPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TBPass.Size = New System.Drawing.Size(224, 20)
+        Me.TBPass.TabIndex = 30
+        Me.TBPass.Text = "Intellect_default_DB_4"
+        '
+        'TBUser
+        '
+        Me.TBUser.Location = New System.Drawing.Point(297, 19)
+        Me.TBUser.Name = "TBUser"
+        Me.TBUser.Size = New System.Drawing.Size(100, 20)
+        Me.TBUser.TabIndex = 29
+        Me.TBUser.Text = "sa"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(404, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(48, 13)
+        Me.Label3.TabIndex = 28
+        Me.Label3.Text = "Пароль:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(208, 22)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(83, 13)
+        Me.Label2.TabIndex = 27
+        Me.Label2.Text = "Пользователь:"
+        '
+        'TBServer
+        '
+        Me.TBServer.Location = New System.Drawing.Point(53, 19)
+        Me.TBServer.Name = "TBServer"
+        Me.TBServer.Size = New System.Drawing.Size(149, 20)
+        Me.TBServer.TabIndex = 26
+        Me.TBServer.Text = "SRVVIDEO\SQLEXPRESS"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 22)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.TabIndex = 25
+        Me.Label1.Text = "Сервер:"
         '
         'Form1
         '
         Me.AcceptButton = Me.BNext
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(938, 756)
+        Me.ClientSize = New System.Drawing.Size(938, 739)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TextBox2)
@@ -532,12 +550,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TBTime)
         Me.Controls.Add(Me.TBNumber)
-        Me.Controls.Add(Me.TBPass)
-        Me.Controls.Add(Me.TBUser)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TBServer)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LabelCount)
         Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.DateTimePicker1)
@@ -565,6 +577,8 @@ Partial Class Form1
         CType(Me.NUD1n, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -589,12 +603,6 @@ Partial Class Form1
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents LabelCount As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TBServer As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TBUser As TextBox
-    Friend WithEvents TBPass As TextBox
     Friend WithEvents TBNumber As TextBox
     Friend WithEvents TBTime As TextBox
     Friend WithEvents Label4 As Label
@@ -619,4 +627,11 @@ Partial Class Form1
     Friend WithEvents PB1n As ProgressBar
     Friend WithEvents PB1l As ProgressBar
     Friend WithEvents Label7 As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents TBPass As TextBox
+    Friend WithEvents TBUser As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TBServer As TextBox
+    Friend WithEvents Label1 As Label
 End Class

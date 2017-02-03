@@ -274,14 +274,15 @@ Public Class Form1
         PB3l.Value = l3err
         PB3n.Value = n3err
 
-        TextBox1.Text = "Процент ошибок из " & n & ": 1-я буква: " & l1err & "%, " &
-            "2-я буква: " & l2err & "%, " &
-            "3-я буква: " & l3err & "%, " &
-            "1-я цифра: " & n1err & "%, " &
-            "2-я цифра: " & n2err & "%, " &
-            "3-я цифра: " & n3err & "%, " &
-            "1-я буква региона: " & r1err & "%, " &
-            "2-я буква региона: " & r2err & "%."
+        TextBox1.Text = "Процент ошибок из " & n & ": " & vbCrLf &
+            "1-я буква: " & Math.Round(l1err, 2) & "%" & vbCrLf &
+            "2-я буква: " & Math.Round(l2err, 2) & "%" & vbCrLf &
+            "3-я буква: " & Math.Round(l3err, 2) & "%" & vbCrLf &
+            "1-я цифра: " & Math.Round(n1err, 2) & "%" & vbCrLf &
+            "2-я цифра: " & Math.Round(n2err, 2) & "%" & vbCrLf &
+            "3-я цифра: " & Math.Round(n3err, 2) & "%" & vbCrLf &
+            "1-я буква региона: " & Math.Round(r1err, 2) & "%" & vbCrLf &
+            "2-я буква региона: " & Math.Round(r2err, 2) & "%"
 
         Return True
 
