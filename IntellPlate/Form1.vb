@@ -112,6 +112,9 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DateTimePicker1.CustomFormat = "dd MMMM yyyy HH:mm:ss"
         DateTimePicker2.CustomFormat = "dd MMMM yyyy HH:mm:ss"
+        DateTimePicker1.Value = Date.Now.Day & " " & Date.Now.Month & " " & Date.Now.Year & " 00:00:00"
+        DateTimePicker2.Value = Date.Now.Day & " " & Date.Now.Month & " " & Date.Now.Year & " 23:59:59"
+
         Flush()
         Download()
 
