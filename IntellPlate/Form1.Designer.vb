@@ -23,6 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BDownload = New System.Windows.Forms.Button()
@@ -64,7 +67,6 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.NUDn = New System.Windows.Forms.NumericUpDown()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -74,6 +76,7 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TBServer = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NUD2r, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +89,7 @@ Partial Class Form1
         CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -212,15 +216,15 @@ Partial Class Form1
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(707, 112)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(219, 433)
+        Me.ListBox1.Size = New System.Drawing.Size(219, 264)
         Me.ListBox1.TabIndex = 13
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(707, 568)
+        Me.TextBox1.Location = New System.Drawing.Point(706, 395)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(219, 151)
+        Me.TextBox1.Size = New System.Drawing.Size(219, 148)
         Me.TextBox1.TabIndex = 14
         '
         'GroupBox1
@@ -443,13 +447,6 @@ Partial Class Form1
         Me.NUDn.Size = New System.Drawing.Size(69, 20)
         Me.NUDn.TabIndex = 29
         '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(176, 555)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 30
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -462,7 +459,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(707, 552)
+        Me.Label7.Location = New System.Drawing.Point(706, 379)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(68, 13)
         Me.Label7.TabIndex = 32
@@ -535,16 +532,33 @@ Partial Class Form1
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Сервер:"
         '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(707, 549)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(218, 170)
+        Me.Chart1.TabIndex = 34
+        Me.Chart1.Text = "Chart1"
+        '
         'Form1
         '
         Me.AcceptButton = Me.BNext
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(938, 739)
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.NUDn)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -579,6 +593,7 @@ Partial Class Form1
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -616,7 +631,6 @@ Partial Class Form1
     Friend WithEvents NUD1l As NumericUpDown
     Friend WithEvents Label5 As Label
     Friend WithEvents NUDn As NumericUpDown
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents PB2r As ProgressBar
     Friend WithEvents PB1r As ProgressBar
@@ -634,4 +648,5 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents TBServer As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class

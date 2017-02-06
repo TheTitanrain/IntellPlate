@@ -4,6 +4,7 @@ Imports System.IO
 Public Class Form1
     Dim errorstext As String = ""
     Dim l1, l2, l3, n1, n2, n3, r1, r2, n As Integer
+    Dim l1err, l2err, l3err, n1err, n2err, n3err, r1err, r2err As Integer
 
     Private Sub BDownload_Click(sender As Object, e As EventArgs) Handles BDownload.Click
         If ListBox1.Items.Count > 0 Then
@@ -117,7 +118,7 @@ Public Class Form1
         DateTimePicker2.Value = Date.Now.Day & " " & Date.Now.Month & " " & Date.Now.Year & " 23:59:59"
 
         Flush()
-        Download()
+        'Download()
 
     End Sub
 
@@ -183,6 +184,11 @@ Public Class Form1
     End Function
     Private Sub BNext_Click(sender As Object, e As EventArgs) Handles BNext.Click
         Try
+            If ListBox1.Items.Count = 0 Then
+                MsgBox("Необходимо загрузить записи о распознанных номерах.", MsgBoxStyle.Critical)
+                Exit Sub
+            End If
+
             n = n + 1
             NUDn.Value = n
             If cbletter1.Checked Then l1 = l1 + 1
@@ -258,14 +264,14 @@ Public Class Form1
 
     End Function
     Function calculation()
-        Dim l1err = l1 / n * 100
-        Dim l2err = l2 / n * 100
-        Dim l3err = l3 / n * 100
-        Dim n1err = n1 / n * 100
-        Dim n2err = n2 / n * 100
-        Dim n3err = n3 / n * 100
-        Dim r1err = r1 / n * 100
-        Dim r2err = r2 / n * 100
+        l1err = l1 / n * 100
+        l2err = l2 / n * 100
+        l3err = l3 / n * 100
+        n1err = n1 / n * 100
+        n2err = n2 / n * 100
+        n3err = n3 / n * 100
+        r1err = r1 / n * 100
+        r2err = r2 / n * 100
         PB1l.Value = l1err
         PB1n.Value = n1err
         PB1r.Value = r1err
@@ -285,9 +291,26 @@ Public Class Form1
             "1-я буква региона: " & Math.Round(r1err, 2) & "%" & vbCrLf &
             "2-я буква региона: " & Math.Round(r2err, 2) & "%"
 
+        Chart()
+
         Return True
 
 
     End Function
+    Function Chart()
+        Chart1.Series.Clear()
+        With Chart1.Series.Add("Мои данные")
+            .Points.AddXY("1-я буква", l1err)
+            .Points.AddXY("1-я цифра", n1err)
+            .Points.AddXY("1-я региона", r1err)
+            .Points.AddXY("2-я буква", l2err)
+            .Points.AddXY("2-я цифра", n2err)
+            .Points.AddXY("2-я региона", r2err)
+            .Points.AddXY("3-я буква", l3err)
+            .Points.AddXY("3-я цифра", n3err)
+            .ChartType = DataVisualization.Charting.SeriesChartType.Pie
+        End With
+        Return True
 
+    End Function
 End Class
