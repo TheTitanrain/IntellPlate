@@ -178,15 +178,56 @@ Public Class Form1
             TBNumber.Text = TABLE(0).Item(0)
 
             cn.Close()
-            Return True
+            Return 1
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
-            Return False
+        End Try
+    End Function
+    Private Sub BNext_Click(sender As Object, e As EventArgs) Handles BNext.Click
+        Try
+            n = n + 1
+            NUDn.Value = n
+            If cbletter1.Checked Then l1 = l1 + 1
+            If cbletter2.Checked Then l2 = l2 + 1
+            If cbletter3.Checked Then l3 = l3 + 1
+            If cbnumber1.Checked Then n1 = n1 + 1
+            If cbnumber2.Checked Then n2 = n2 + 1
+            If cbnumber3.Checked Then n3 = n3 + 1
+            If cbregion1.Checked Then r1 = r1 + 1
+            If cbregion2.Checked Then r2 = r2 + 1
+            NUD1l.Value = l1
+            NUD2l.Value = l2
+            NUD3l.Value = l3
+            NUD1n.Value = n1
+            NUD2n.Value = n2
+            NUD3n.Value = n3
+            NUD1r.Value = r1
+            NUD2r.Value = r2
+
+            calculation()
+            cbletter1.Checked = False
+            cbletter2.Checked = False
+            cbletter3.Checked = False
+            cbnumber1.Checked = False
+            cbnumber2.Checked = False
+            cbnumber3.Checked = False
+            cbregion1.Checked = False
+            cbregion2.Checked = False
+
+            If ListBox1.SelectedIndex = ListBox1.Items.Count - 1 Then
+                ListBox1.SelectedIndex = 0
+            Else
+                ListBox1.SelectedIndex = ListBox1.SelectedIndex + 1
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
         End Try
 
-    End Function
 
+    End Sub
     Function Flush()
         n = 0
         l1 = 0
