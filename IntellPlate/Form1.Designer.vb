@@ -23,6 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BDownload = New System.Windows.Forms.Button()
@@ -58,6 +61,7 @@ Partial Class Form1
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TBPass = New System.Windows.Forms.TextBox()
         Me.LabelCount = New System.Windows.Forms.Label()
         Me.TBNumber = New System.Windows.Forms.TextBox()
         Me.TBTime = New System.Windows.Forms.TextBox()
@@ -67,12 +71,12 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TBPass = New System.Windows.Forms.TextBox()
         Me.TBUser = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TBServer = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NUD2r, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +89,7 @@ Partial Class Form1
         CType(Me.NUD1l, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -211,15 +216,15 @@ Partial Class Form1
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(707, 112)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(219, 433)
+        Me.ListBox1.Size = New System.Drawing.Size(219, 355)
         Me.ListBox1.TabIndex = 13
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(707, 568)
+        Me.TextBox1.Location = New System.Drawing.Point(704, 486)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(219, 151)
+        Me.TextBox1.Size = New System.Drawing.Size(219, 57)
         Me.TextBox1.TabIndex = 14
         '
         'GroupBox1
@@ -391,6 +396,16 @@ Partial Class Form1
         '
         Me.ToolTip1.AutomaticDelay = 300
         '
+        'TBPass
+        '
+        Me.TBPass.Location = New System.Drawing.Point(458, 19)
+        Me.TBPass.Name = "TBPass"
+        Me.TBPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TBPass.Size = New System.Drawing.Size(224, 20)
+        Me.TBPass.TabIndex = 30
+        Me.TBPass.Text = "Intellect_default_DB_4"
+        Me.ToolTip1.SetToolTip(Me.TBPass, "Пароль к базе данный. Пароль по умолчанию: Intellect_default_DB_4")
+        '
         'LabelCount
         '
         Me.LabelCount.Location = New System.Drawing.Point(706, 722)
@@ -454,7 +469,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(707, 552)
+        Me.Label7.Location = New System.Drawing.Point(704, 470)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(68, 13)
         Me.Label7.TabIndex = 32
@@ -474,16 +489,6 @@ Partial Class Form1
         Me.GroupBox2.TabIndex = 33
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Настройки подключения к серверу:"
-        '
-        'TBPass
-        '
-        Me.TBPass.Location = New System.Drawing.Point(458, 19)
-        Me.TBPass.Name = "TBPass"
-        Me.TBPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TBPass.Size = New System.Drawing.Size(224, 20)
-        Me.TBPass.TabIndex = 30
-        Me.TBPass.Text = "Intellect_default_DB_4"
-        Me.ToolTip1.SetToolTip(Me.TBPass, "Пароль к базе данный. Пароль по умолчанию: Intellect_default_DB_4")
         '
         'TBUser
         '
@@ -528,12 +533,29 @@ Partial Class Form1
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Сервер:"
         '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(707, 549)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(216, 170)
+        Me.Chart1.TabIndex = 34
+        Me.Chart1.Text = "Chart1"
+        '
         'Form1
         '
         Me.AcceptButton = Me.BNext
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(938, 739)
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -571,6 +593,7 @@ Partial Class Form1
         CType(Me.NUDn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -625,4 +648,5 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents TBServer As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class
