@@ -64,7 +64,6 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.NUDn = New System.Windows.Forms.NumericUpDown()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -443,13 +442,6 @@ Partial Class Form1
         Me.NUDn.Size = New System.Drawing.Size(69, 20)
         Me.NUDn.TabIndex = 29
         '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(176, 555)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 30
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -491,6 +483,7 @@ Partial Class Form1
         Me.TBPass.Size = New System.Drawing.Size(224, 20)
         Me.TBPass.TabIndex = 30
         Me.TBPass.Text = "Intellect_default_DB_4"
+        Me.ToolTip1.SetToolTip(Me.TBPass, "Пароль к базе данный. Пароль по умолчанию: Intellect_default_DB_4")
         '
         'TBUser
         '
@@ -544,7 +537,6 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.NUDn)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -616,7 +608,6 @@ Partial Class Form1
     Friend WithEvents NUD1l As NumericUpDown
     Friend WithEvents Label5 As Label
     Friend WithEvents NUDn As NumericUpDown
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents PB2r As ProgressBar
     Friend WithEvents PB1r As ProgressBar
