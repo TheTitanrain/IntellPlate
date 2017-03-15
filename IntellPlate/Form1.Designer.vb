@@ -443,6 +443,7 @@ Partial Class Form1
         'NUDn
         '
         Me.NUDn.Location = New System.Drawing.Point(468, 664)
+        Me.NUDn.Maximum = New Decimal(New Integer() {1000000000, 0, 0, 0})
         Me.NUDn.Name = "NUDn"
         Me.NUDn.Size = New System.Drawing.Size(69, 20)
         Me.NUDn.TabIndex = 29

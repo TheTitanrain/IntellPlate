@@ -118,7 +118,6 @@ Public Class Form1
         DateTimePicker2.Value = Date.Now.Day & " " & Date.Now.Month & " " & Date.Now.Year & " 23:59:59"
 
         Flush()
-        'Download()
 
     End Sub
 
@@ -288,8 +287,8 @@ Public Class Form1
             "1-я цифра: " & Math.Round(n1err, 2) & "%" & vbCrLf &
             "2-я цифра: " & Math.Round(n2err, 2) & "%" & vbCrLf &
             "3-я цифра: " & Math.Round(n3err, 2) & "%" & vbCrLf &
-            "1-я буква региона: " & Math.Round(r1err, 2) & "%" & vbCrLf &
-            "2-я буква региона: " & Math.Round(r2err, 2) & "%"
+            "1-я цифра региона: " & Math.Round(r1err, 2) & "%" & vbCrLf &
+            "2-я цифра региона: " & Math.Round(r2err, 2) & "%"
 
         Chart()
 
